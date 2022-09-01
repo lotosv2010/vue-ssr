@@ -12,6 +12,10 @@ export default () => {
     mode: 'history',
     routes: [
       {
+        path: '/',
+        redirect: '/foo',
+      },
+      {
         path: '/foo',
         component: Foo
       },

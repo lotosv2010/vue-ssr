@@ -32,7 +32,7 @@
     "client:build": "webpack --config ./config/webpack.client.js --watch",
     "server:build": "webpack --config ./config/webpack.server.js --watch",
     "run-all": "concurrently \"npm run client:build\" \"npm run server:build\"",
-    "start": "node server.js"
+    "start": "nodemon server.js"
   },
   "dependencies": {
     "koa": "^2.13.0",
