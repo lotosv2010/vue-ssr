@@ -14,6 +14,8 @@
 - @koa/router
 
 ## 目录
+
+```html
 ├── config
 │   ├── webpack.base.js
 │   ├── webpack.client.js
@@ -41,6 +43,7 @@
 │   ├── router.js
 │   └── store.js
 ├── webpack.config.js
+```
 
 ## webpack
 - webpack 使用需要的包

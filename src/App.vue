@@ -1,26 +1,24 @@
 <template>
   <div id="app">
-    <header>
-      <router-link to="/bar">bar</router-link>
-      <router-link to="/foo">foo</router-link>
-    </header>
-    <main>
-      <router-view></router-view>
-    </main>
+    <ul>
+      <li>
+        <router-link to="/">Home</router-link>
+      </li>
+      <li>
+        <router-link to="/about">About</router-link>
+      </li>
+      <li>
+        <router-link to="/postlist">PostList</router-link>
+      </li>
+    </ul>
+    <!-- 路由出口 -->
+    <router-view />
   </div>
 </template>
-
 <script>
-import Bar from './components/Bar'
-import Foo from './components/Foo'
 export default {
-  components: {
-    Bar,
-    Foo
-  }
+  name: 'App'
 }
 </script>
-
-<style scoped>
-
+<style>
 </style>

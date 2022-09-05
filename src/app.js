@@ -1,22 +1,28 @@
+/**
+  * 通用启动入口 
+  **/
 import Vue from 'vue'
 import App from './App.vue'
-import createRouter from './create-router'
-import createStore from './create-store'
+import { createRouter } from './router'
+import VueMeta from 'vue-meta'
+import { createStore } from './store'
 
-// 1.vue在客户端运行的时候，每个客户端都拥有一个独立的实例
-// 2.每次客户端访问都要产生一个新的实例，所以这里导出一个函数
-export default () => {
+Vue.use(VueMeta)
+Vue.mixin({
+  metaInfo: {
+    titleTemplate: '%s - SSR'
+  }
+})
+
+// 导出一个工厂函数，用于创建新的 // 应用程序、router 和 store 实例 
+export function createApp() {
   const router = createRouter()
   const store = createStore()
   const app = new Vue({
-    router,
-    store,
+    router, // 将 router 挂载到根实例 
+    store, // 把容器挂载到 Vue 根实例
+    // 根实例简单的渲染应用程序组件。 
     render: h => h(App)
   })
-  // 后续会导出路由、vuex等
-  return {
-    app,
-    router,
-    store
-  }
+  return { app, router, store }
 }
